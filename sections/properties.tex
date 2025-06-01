@@ -1,0 +1,78 @@
+\begin{frame}{Strict Equivalence}
+
+    Program equivalence posed as a \textbf{relational} property.
+    \pause
+    \vspace{20pt}
+    \begin{tcolorbox}[
+        colback=white,
+        colframe=green,
+        colbacktitle=white!70!green,
+        coltitle=black,
+        title=\textbf{Relational Synthesis for Program Equivalence},
+        enhanced,
+        attach boxed title to top left={yshift=-2mm, xshift=0.5cm},%
+        ]
+        \[
+        \exists \E. \ \{\vec{x_1} = \vec{x_2}\}\ \ \proghole{1}{\E.H}, \proghole{2}{\E.G} \ \colorbox{white}{\{\proghole{1}{\E.H}($\vec{x_1}$) = \proghole{2}{\E.G}($\vec{x_2}$)\}}
+        \]
+    \end{tcolorbox}
+
+\end{frame}
+
+
+\begin{frame}{Strict Non-Interference}
+    Strict non-interference requires that program executions with the same public inputs $\vec{x_1}=\vec{x_2}$, irrespective of the secret inputs $s_1$ and $s_2$, must have identical responses; i.e., the program does not reveal any information about the secret input.
+    \begin{align*}
+        \exists \E. \ \{\vec{x_1} = \vec{x_2}\} \ \proghole{}{\E} \ \colorbox{white}{$\{ \proghole{}{\E}({s_1}, \vec{x_1}) = \proghole{}{\E}({s_2}, \vec{x_2}) \}$}
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Weaker Versions}
+    \begin{tcolorbox}[
+        colback=white,
+        colframe=green,
+        colbacktitle=white!70!green,
+        coltitle=black,
+        title=\textbf{Weak Equivalence},
+        enhanced,
+        attach boxed title to top left={yshift=-2mm, xshift=0.5cm},%
+        ]
+        \[
+        \exists \E. \ \{\vec{x_1} = \vec{x_2}\}\ \ \proghole{1}{\E.H}, \proghole{2}{\E.G} \colorbox{white}{$\{\mid \proghole{1}{\E.H}(\vec{x_1}) - \proghole{2}{\E.G}(\vec{x_2}) \mid \leq c\}$}
+        \]
+    \end{tcolorbox}
+    \begin{tcolorbox}[
+        colback=white,
+        colframe=green,
+        colbacktitle=white!70!green,
+        coltitle=black,
+        title=\textbf{Weak Non-Interference},
+        enhanced,
+        attach boxed title to top left={yshift=-2mm, xshift=0.5cm},%
+        ]
+        \[
+        \exists \E. \ \{\vec{x_1} = \vec{x_2}\} \ \proghole{}{\E} \ \colorbox{white}{$\{||\proghole{}{\E}({s_1}, \vec{x_1}) - \proghole{}{\E}({s_2}, \vec{x_2}) || \leq c\} $}
+        \]
+    \end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Robustness}
+    Robustness requires that small changes in the inputs must not lead to large difference in the responses of the program. In this case, if the inputs are within a distance $d_1$, then the desired completion must not change the response of the program by more than a distance that is defined by a function over program inputs $\vec{x_1}$ and $\vec{x_2}$.
+    \begin{align*}
+        \exists \E. \ \{|| \vec{x_1} - \vec{x_2} || \leq d_1\} \ \proghole{}{\E} \ \colorbox{white}{$\{|| \proghole{}{\E}(\vec{x_1}) - \proghole{}{\E}(\vec{x_2}) || \leq f(\vec{x_1},\vec{x_2})\} $}
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Group Fairness}
+    Group Fairness requires that for two individuals, one from a majority population ($s_1 = 1$) and another from the minority population ($s_2 = 0$), the decision of the program on a favorable decision (like hiring on a job) must not be disadvantageous to the individual from the minority population.  That is, the program must not use the \textit{sensitive attribute} ($s$) to be unfair to the minority population. The response is not necessarily Boolean; it may be a number that indicates the \textit{suitability} of the candidate for the position (higher is better).
+    \begin{align*}
+        \exists \E. \ \{{s_1} \leq {s_2} \land \vec{x_2} \sqsubseteq \vec{x_1}\} \ \proghole{}{\E} \ & \colorbox{white}{$\{\proghole{}{\E}(\vec{x_2}, {s_2}) \leq \proghole{}{\E}(\vec{x_1}, {s_1})\} $}
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Monotonicity}
+    Monotonicity is a hyper-property that requires that for any two executions of the program, if the inputs are ordered, so must be the outputs. The completion would then need to satisfy the following:
+    \begin{align*}
+        \exists \E. \ \{\vec{x_1} \sqsubseteq \vec{x_2}\} \ \proghole{}{\E}\ \colorbox{white}{$\{ \proghole{}{\E}(\vec{x_1}) \sqsubseteq \proghole{}{\E}(\vec{x_2}) \}$}
+    \end{align*}
+\end{frame}

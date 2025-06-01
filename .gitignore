@@ -1,0 +1,55 @@
+paper.pdf
+main.pdf
+main.tex
+paper_pending.pdf
+_minted-paper/*
+acmart.cls
+acmart.pdf
+acmguide.pdf
+samples/sample-*.pdf
+*.gz
+*.log
+*.aux
+*.cfg
+*.glo
+*.idx
+*.toc
+*.ilg
+*.ind
+*.out
+*.lof
+*.lot
+*.bbl
+*.blg
+*.gls
+*.cut
+*.hd
+*.dvi
+*.ps
+*.thm
+*.tgz
+*.zip
+*.rpi
+*~
+*.bcf
+*.run.xml
+samples/ACM-Reference-Format.bst
+samples/*.tex
+samples/*.bbx
+samples/*.cbx
+samples/*.dbx
+
+*.blg
+*.log
+*.log *.aux 
+*.cfg *.glo *.idx *.toc
+*.ilg *.ind *.out *.lof
+*.lot *.bbl *.blg *.gls *.cut *.hd
+*.dvi *.ps *.thm *.tgz *.zip *.rpi
+*.gz
+*.bbl
+*.aux
+*.tar.gz
+*.bak
+*.bak?
+

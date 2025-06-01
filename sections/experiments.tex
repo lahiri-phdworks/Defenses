@@ -1,0 +1,53 @@
+\begin{frame}{Experiments}
+    Machine configuration, Benchmark Sources, Domain-specific Language.
+\end{frame}
+
+\begin{frame}{Instances without quantitative objectives.}
+    \begin{table}
+        \centering
+        \small
+        %\captionof{table}{Instances without quantitative objectives.}
+        \label{tab:rsynth}
+        \begin{tabular}{c|c|c}
+            \toprule
+            \textbf{Bench} & \textbf{Property} & \textbf{Time(s)} \\ \hline\hline
+            b26 & {\textbf{\begin{tabular}[c]{@{}c@{}}Strict Equivalence\end{tabular}}} & 4 \\ \hline
+            b10 & {\textbf{\begin{tabular}[c]{@{}c@{}}Strict Equivalence\end{tabular}}} & 3 \\ \hline
+            b18 & {\textbf{\begin{tabular}[c]{@{}c@{}}Strict Equivalence\end{tabular}}} & 2 \\ \hline
+            b16 & {\textbf{\begin{tabular}[c]{@{}c@{}}Strict Equivalence\end{tabular}}} & 1 \\ \hline
+            b21 & {\textbf{\begin{tabular}[c]{@{}c@{}}Strict Equivalence\end{tabular}}} & 3 \\ \hline
+            b27 & {\textbf{\begin{tabular}[c]{@{}c@{}}Strict Equivalence\end{tabular}}} & 4 \\ \hline
+            b04 & {\textbf{\begin{tabular}[c]{@{}c@{}}Strict Equivalence\end{tabular}}} & 3 \\ \hline
+            b34 & {\textbf{\begin{tabular}[c]{@{}c@{}}Strict Equivalence\end{tabular}}} & 10 \\ \hline
+            b05 & {\textbf{\begin{tabular}[c]{@{}c@{}}Strict Equivalence\end{tabular}}} & 7 \\ \hline
+            nonintf01 & {\textbf{\begin{tabular}[c]{@{}c@{}}Strict Non-Interference\end{tabular}}} & 7 \\ \hline
+            nonintf02 & {\textbf{\begin{tabular}[c]{@{}c@{}}Strict Non-Interference\end{tabular}}} & 8 \\ \hline
+            nonintf05 & {\textbf{\begin{tabular}[c]{@{}c@{}}Strict Non-Interference\end{tabular}}} & 6 \\ \hline
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}{Instances with quantitative objectives}
+    \begin{table}
+        \centering
+        \small
+        %\captionof{table}{Instances with quantitative objectives}
+        \label{tab:qbsynth}
+        \begin{tabular}{c|c|c|c}
+            \toprule
+            \textbf{Bench} & \textbf{Property} & \textbf{Time(s)} & \textbf{Best?} \\ \hline\hline
+            mono01 & {\textbf{\begin{tabular}[c]{@{}c@{}}Monotonicity\end{tabular}}} & 329 & \textcolor{green}{\ding{52}} \\ \hline
+            mono02 & {\textbf{\begin{tabular}[c]{@{}c@{}}Monotonicity\end{tabular}}} & 311 & \textcolor{green}{\ding{52}} \\ \hline
+            mono02 & {\textbf{\begin{tabular}[c]{@{}c@{}}Monotonicity\end{tabular}}} & 310 & \textcolor{green}{\ding{52}} \\ \hline
+            weak01 & {\textbf{\begin{tabular}[c]{@{}c@{}}Weak Equivalence\end{tabular}}} & 210 & \textcolor{green}{\ding{52}} \\ \hline
+            weak02 & {\textbf{\begin{tabular}[c]{@{}c@{}}Weak Equivalence\end{tabular}}} & 198 & \textcolor{green}{\ding{52}} \\ \hline
+            weak03 & {\textbf{\begin{tabular}[c]{@{}c@{}}Weak Equivalence\end{tabular}}} & 128 & \textcolor{green}{\ding{52}} \\ \hline
+            weak04 & {\textbf{\begin{tabular}[c]{@{}c@{}}Weak Equivalence\end{tabular}}} & 168 & \textcolor{green}{\ding{52}} \\ \hline
+            robust01 & {\textbf{\begin{tabular}[c]{@{}c@{}}Robustness\end{tabular}}} & 95 & \textcolor{green}{\ding{52}} \\ \hline
+            robust02 & {\textbf{\begin{tabular}[c]{@{}c@{}}Robustness\end{tabular}}} & 102 & \textcolor{green}{\ding{52}} \\ \hline
+            fair01 & {\textbf{\begin{tabular}[c]{@{}c@{}}Group Fairness\end{tabular}}} & 82 & \textcolor{green}{\ding{52}} \\ \hline
+            nonintf03 & {\textbf{\begin{tabular}[c]{@{}c@{}}Weak Non-Interference\end{tabular}}} & 70 & \textcolor{green}{\ding{52}} \\ \hline
+            nonintf04 & {\textbf{\begin{tabular}[c]{@{}c@{}}Weak Non-Interference\end{tabular}}} & 75 & \textcolor{green}{\ding{52}} \\ \hline
+        \end{tabular}
+    \end{table}
+\end{frame}

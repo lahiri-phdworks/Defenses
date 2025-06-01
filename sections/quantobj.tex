@@ -1,0 +1,18 @@
+\begin{frame}{Relational property with (semantic) quantitative objectives.}
+
+\end{frame}
+
+\begin{frame}{All Gammas!}
+    \textbf{Monotonicity, Robustness:} A preference on a completion could be the one that minimizes the distance between any two responses of the program.
+    \begin{align*}
+        \Gamma(\proghole{}{\E}(\vec{x_1}), \proghole{}{\E}(\vec{x_2})) \dfn ||\proghole{}{\E}(\vec{x_1}) - \proghole{}{\E}(\vec{x_2})||
+    \end{align*}
+    \textbf{Weak Non-Interference, Weak Equivalence:} A preference on a completion could be the one that minimizes the distance between any two responses of the program.
+    \begin{align*}
+        \Gamma(\proghole{}{\E}(\vec{x_1}), \proghole{}{\E}(\vec{x_2})) \dfn ||\proghole{}{\E}(\vec{x_1}) - \proghole{}{\E}(\vec{x_2})||
+    \end{align*}
+    \textbf{Group Fairness:} One may design many preference metrics over completions. One metric could be to prefer completions where the deviation in responses between candidates of two populations is small for similar candidates.
+    \begin{align*}
+        \Gamma(\proghole{}{\E}(\vec{x_1}, {s_1}), \proghole{}{\E}(\vec{x_2}, {s_2})) \dfn \textrm{if } (s_1 < s_2 \land \vec{x_1} \sim \vec{x_2})\\ \textrm{ then }||\proghole{}{\E}(\vec{x_1}, {y_1}) - \proghole{}{\E}(\vec{x_2}, {y_2})|| \textrm{ else } 0
+    \end{align*}
+\end{frame}

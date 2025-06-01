@@ -1,0 +1,134 @@
+\begin{frame}{Verification for Program Equivalence.}
+    Program equivalence requires that, any two executions of a pair of programs, $\prog_1$ and $\prog_2$ on same the same input $\vec{x}$, must yield the same outputs.
+    \pause
+    \begin{tcolorbox}[
+        colback=white,
+        colframe=green,
+        colbacktitle=white!70!green,
+        coltitle=black,
+        title=\textbf{A Verification Problem},
+        enhanced,
+        attach boxed title to top left={yshift=-2mm, xshift=0.5cm},%
+        ]
+        \[
+        \forall \vec{x}.\ \prog_1(\vec{x}) = \prog_2(\vec{x})
+        \]
+    \end{tcolorbox}
+    %\pause
+    %\begin{tcolorbox}[
+    %    colback=white,
+    %    colframe=red,
+    %    colbacktitle=white!70!red,
+    %    coltitle=black,
+    %    title=\textbf{Harder Problem!},
+    %    enhanced,
+    %    attach boxed title to top left={yshift=-2mm, xshift=0.5cm},%
+    %]
+    %    \[Finding \prog_1\ or\ \prog_2\ may\ only\ be\ \textit{partially specified}.\ \]
+    %\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Sketching for Program Equivalence.}
+    Given a reference program $\prog_1$ and a \textit{partial} program $\prog_2$ that has a hole $\boxed{\cdot}$, we are interested in \textit{completing} the partial program by synthesizing an expression to fill the hole such that the two programs are rendered semantically equivalent.
+    \pause
+    \begin{tcolorbox}[
+        colback=white,
+        colframe=blue,
+        colbacktitle=white!70!blue,
+        coltitle=black,
+        title=\textbf{Formal Definition},
+        enhanced,
+        attach boxed title to top left={yshift=-2mm, xshift=0.5cm},%
+        ]
+        \[ \exists \E \in \lang.\ \forall \vec{x}.\ \prog_1(\vec{x}) = \proghole{2}{\E}(\vec{x}) \]
+    \end{tcolorbox}
+\end{frame}
+
+\begin{frame}[fragile]{Sketching for Program Equivalence}
+    %    \frametitle{Program Equivalence}
+    \begin{figure}[t]
+        \begin{subfigure}{0.48\textwidth}
+            \begin{minted}{c}
+                int |$\prog_1$|(int n){
+                    |\colorbox{yellow!20!white}{assume(n > 1);}|
+                    int i = 0, ans = 0;
+                    while(i < (n - 1)){
+                        i = i + 1;
+                        ans = ans + (5 * i) + 1;
+                    }
+                    return ans + 1;
+                }
+            \end{minted}
+            \caption{Program 1 \label{list:p1}}
+        \end{subfigure}
+        \begin{subfigure}{0.48\textwidth}
+            \begin{minted}[tabsize=2, numbersep=0em, tabsize=1, fontsize=\small,  highlightlines={15}, escapeinside=||]{c}
+                int |$\proghole{2}{.}$|(int n){
+                    |\colorbox{yellow!20!white}{assume(n > 1);}|
+                    int x = 0, y = 0, z = n;
+                    while(z |$\neq$| 0){
+                        z = z - 1;
+                        x = |\hole{\cdot}|;
+                        y = y + 1;
+                    }
+                    return x + y;
+                }
+            \end{minted}
+            \caption{Program 2 (with hole \hole{\cdot})\label{list:p2}}
+        \end{subfigure}
+        %        \caption{Two programs $\prog_1$ and $\proghole{2}{.}$ for program equivalence.\label{list:motiv:eq}}
+    \end{figure}
+    \pause
+    \begin{tcolorbox}[
+        colback=white,
+        colframe=blue,
+        colbacktitle=white!70!blue,
+        coltitle=black,
+        title=\textbf{Post condition for sketching.},
+        enhanced,
+        attach boxed title to top left={yshift=-2mm, xshift=0.5cm},%
+        ]
+        \[ \exists \E \in \lang.\ \forall \vec{x}.\ \prog_1(\vec{x}) = \proghole{2}{\E}(\vec{x}) \]
+        \pause
+        \vspace{-10pt}
+        \[
+        \colorbox{green!20!white}{$assert(ans + 1 = x + y)$}
+        \]
+    \end{tcolorbox}
+\end{frame}
+
+\begin{frame}[fragile]{Sketching for Program Equivalence}
+    %    \frametitle{Program Equivalence}
+    \begin{figure}[t]
+        \begin{subfigure}{0.48\textwidth}
+            \begin{minted}{c}
+                int |$\prog_1$|(int n){
+                    |\colorbox{yellow!20!white}{assume(n > 1);}|
+                    int i = 0, ans = 0;
+                    while(i < (n - 1)){
+                        i = i + 1;
+                        ans = ans + (5 * i) + 1;
+                    }
+                    return ans + 1;
+                }
+            \end{minted}
+            \caption{Program 1 \label{list:p1}}
+        \end{subfigure}
+        \begin{subfigure}{0.48\textwidth}
+            \begin{minted}[tabsize=2, numbersep=0em, tabsize=1, fontsize=\small,  highlightlines={15}, escapeinside=||]{c}
+                int |$\proghole{2}{.}$|(int n){
+                    |\colorbox{yellow!20!white}{assume(n > 1);}|
+                    int x = 0, y = 0, z = n;
+                    while(z |$\neq$| 0){
+                        z = z - 1;
+                        x = |\hole{x + 6 \cdot y - n}|;
+                        y = y + 1;
+                    }
+                    return x + y;
+                }
+            \end{minted}
+            \caption{Program 2 (with hole \hole{\cdot})\label{list:p2}}
+        \end{subfigure}
+        %        \caption{Two programs $\prog_1$ and $\proghole{2}{.}$ for program equivalence.\label{list:motiv:eq}}
+    \end{figure}
+\end{frame}
