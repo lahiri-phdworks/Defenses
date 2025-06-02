@@ -1,18 +1,85 @@
 \begin{frame}{Relational property with (semantic) quantitative objectives.}
-
+    Quantitative objectives on the synthesis problem that defines the \textit{preference} among the feasible completions, \E.
+    \pause
+    \vspace{20pt}
+    \begin{tcolorbox}[
+    colback=white,
+    colframe=green,
+    colbacktitle=white!70!green,
+    coltitle=black,
+    title=\textbf{Quantitative Objective, $\Gamma$},
+    enhanced,
+    attach boxed title to top left={yshift=-2mm, xshift=0.5cm},%
+]
+    \[
+        \Gamma(\ \proghole{1}{\E.H}(\vec{x_1}),\ \proghole{2}{\E.H}(\vec{x_2})\ )
+    \]
+\end{tcolorbox}
+\pause
+\vspace{10pt}
+The most preferred completion can be found by \textbf{minimizing} the quantitative objective.
 \end{frame}
 
-\begin{frame}{All Gammas!}
-    \textbf{Monotonicity, Robustness:} A preference on a completion could be the one that minimizes the distance between any two responses of the program.
+\begin{frame}{Relational property with (semantic) quantitative objectives.}
+    The ordering relation $\E$ is a partial order over the completions, defined by the relation, $\sqsubseteq$, and the \textit{strict} ordering $\sqsubset$
+    \pause
+    \vspace{10pt}
+        \begin{tcolorbox}[
+        colback=white,
+        colframe=green,
+        colbacktitle=white!70!green,
+        coltitle=black,
+        title=\textbf{Dominance},
+        enhanced,
+        attach boxed title to top left={yshift=-2mm, xshift=0.5cm},%
+        ]
+A completion $\E'$ dominates a completion $\E$ if the value of $\Gamma$ score with $\E'$ is smaller or equals to $\E$ across all input pairs $\B{\vec{x_1}, \vec{x_2}}$
+    \end{tcolorbox}
+        \pause
+    \vspace{10pt}
+    \begin{tcolorbox}[
+        colback=white,
+        colframe=red,
+        colbacktitle=white!70!red,
+        coltitle=black,
+        title=\textbf{Strict Dominance},
+        enhanced,
+        attach boxed title to top left={yshift=-2mm, xshift=0.5cm},%
+        ]
+Additionally requires the existence of at least one input-pair where the $\Gamma$ score of $\E'$ is strictly smaller than that of~$\E$
+    \end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Objective Function for different Relational Properties.}
+    \vspace{20pt}
+    \begin{tcolorbox}[
+        colback=white,
+        colframe=blue,
+        colbacktitle=white!70!blue,
+        coltitle=black,
+        title=\textbf{Monotonicity, Robustness, Weak Non-Interference, Weak Equivalence},
+        enhanced,
+        attach boxed title to top left={yshift=-2mm, xshift=0.2cm},%
+        ]
+    Completions that minimize the distance between any two responses of the program.
     \begin{align*}
-        \Gamma(\proghole{}{\E}(\vec{x_1}), \proghole{}{\E}(\vec{x_2})) \dfn ||\proghole{}{\E}(\vec{x_1}) - \proghole{}{\E}(\vec{x_2})||
-    \end{align*}
-    \textbf{Weak Non-Interference, Weak Equivalence:} A preference on a completion could be the one that minimizes the distance between any two responses of the program.
-    \begin{align*}
-        \Gamma(\proghole{}{\E}(\vec{x_1}), \proghole{}{\E}(\vec{x_2})) \dfn ||\proghole{}{\E}(\vec{x_1}) - \proghole{}{\E}(\vec{x_2})||
-    \end{align*}
-    \textbf{Group Fairness:} One may design many preference metrics over completions. One metric could be to prefer completions where the deviation in responses between candidates of two populations is small for similar candidates.
+    \Gamma(\proghole{}{\E}(\vec{x_1}), \proghole{}{\E}(\vec{x_2})) \dfn ||\proghole{}{\E}(\vec{x_1}) - \proghole{}{\E}(\vec{x_2})||
+\end{align*}
+    \end{tcolorbox}
+    \pause
+        \vspace{20pt}
+    \begin{tcolorbox}[
+        colback=white,
+        colframe=blue,
+        colbacktitle=white!70!blue,
+        coltitle=black,
+        title=\textbf{Group Fairness},
+        enhanced,
+        attach boxed title to top left={yshift=-2mm, xshift=0.2cm},%
+        ]
+        Prefer completions where the deviation in responses between candidates of two populations is small for similar candidates.
     \begin{align*}
         \Gamma(\proghole{}{\E}(\vec{x_1}, {s_1}), \proghole{}{\E}(\vec{x_2}, {s_2})) \dfn \textrm{if } (s_1 < s_2 \land \vec{x_1} \sim \vec{x_2})\\ \textrm{ then }||\proghole{}{\E}(\vec{x_1}, {y_1}) - \proghole{}{\E}(\vec{x_2}, {y_2})|| \textrm{ else } 0
     \end{align*}
+    \end{tcolorbox}
 \end{frame}

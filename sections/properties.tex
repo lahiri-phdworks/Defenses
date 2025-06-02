@@ -21,9 +21,9 @@
 
 
 \begin{frame}{Strict Non-Interference}
-    Given public inputs, ($\vec{x_1}, \vec{x_2}$) and secret inputs ($s_1, s_2$), program (\prog) does not reveal any information about the secret inputs.
+    Given public inputs, ($\vec{x_1}, \vec{x_2}$) and secret inputs (\colorbox{blue!10!white}{$s_1$}, \colorbox{red!10!white}{$s_2$}), program (\prog) does not reveal any information about the secret inputs.
     \begin{align*}
-        \exists \E. \ \{\vec{x_1} = \vec{x_2}\} \ \proghole{}{\E} \ \colorbox{white}{$\{ \proghole{}{\E}({s_1}, \vec{x_1}) = \proghole{}{\E}({s_2}, \vec{x_2}) \}$}
+        \exists \E. \ \{\vec{x_1} = \vec{x_2}\} \ \proghole{}{\E} \ \colorbox{white}{$\{ \proghole{}{\E}(\colorbox{blue!10!white}{$s_1$}, \vec{x_1}) = \proghole{}{\E}(\colorbox{red!10!white}{$s_2$}, \vec{x_2}) \}$}
     \end{align*}
 \end{frame}
 
@@ -51,27 +51,27 @@
         attach boxed title to top left={yshift=-2mm, xshift=0.5cm},%
         ]
         \[
-        \exists \E. \ \{\vec{x_1} = \vec{x_2}\} \ \proghole{}{\E} \ \colorbox{white}{$\{||\proghole{}{\E}({s_1}, \vec{x_1}) - \proghole{}{\E}({s_2}, \vec{x_2}) || \leq c\} $}
+        \exists \E. \ \{\vec{x_1} = \vec{x_2}\} \ \proghole{}{\E} \ \colorbox{white}{$\{||\proghole{}{\E}(\colorbox{blue!10!white}{$s_1$}, \vec{x_1}) - \proghole{}{\E}(\colorbox{red!10!white}{$s_2$}, \vec{x_2}) || \leq c\} $}
         \]
     \end{tcolorbox}
 \end{frame}
 
 \begin{frame}{Robustness}
-    Robustness requires that small changes in the inputs must not lead to large difference in the responses of the program.
+    Small changes in the inputs must not lead to large difference in the responses of the program, \prog.
     \begin{align*}
         \exists \E. \ \{|| \vec{x_1} - \vec{x_2} || \leq d_1\} \ \proghole{}{\E} \ \colorbox{white}{$\{|| \proghole{}{\E}(\vec{x_1}) - \proghole{}{\E}(\vec{x_2}) || \leq f(\vec{x_1},\vec{x_2})\} $}
     \end{align*}
 \end{frame}
 
 \begin{frame}{Group Fairness}
-    Program must not use the \textit{sensitive attribute} ($s$) to be unfair to the minority population.
+    Program, \prog must not use the \textit{sensitive attribute} ($s$) to be unfair to the minority population.
     \begin{align*}
         \exists \E. \ \{{s_1} \leq {s_2} \land \vec{x_2} \sqsubseteq \vec{x_1}\} \ \proghole{}{\E} \ & \colorbox{white}{$\{\proghole{}{\E}(\vec{x_2}, {s_2}) \leq \proghole{}{\E}(\vec{x_1}, {s_1})\} $}
     \end{align*}
 \end{frame}
 
 \begin{frame}{Monotonicity}
-    Monotonicity is a hyper-property that requires that for any two executions of the program, if the inputs are ordered, so must be the outputs.
+    For any two executions of the program, \prog, if the inputs are ordered, so must be the outputs.
     \begin{align*}
         \exists \E. \ \{\vec{x_1} \sqsubseteq \vec{x_2}\} \ \proghole{}{\E}\ \colorbox{white}{$\{ \proghole{}{\E}(\vec{x_1}) \sqsubseteq \proghole{}{\E}(\vec{x_2}) \}$}
     \end{align*}

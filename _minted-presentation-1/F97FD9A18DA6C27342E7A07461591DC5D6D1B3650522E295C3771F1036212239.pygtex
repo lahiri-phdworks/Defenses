@@ -1,7 +1,10 @@
 \begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
 \PYG{k+kt}{int}\PYG{+w}{ }\PYG{esc}{$\widehat{\proghole{}{\cdot}}$}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{esc}{$a_1$}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{esc}{$b_1$}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{esc}{$a_2$}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{esc}{$b_2$}\PYG{p}{)}\PYG{p}{\PYGZob{}}
+
 \PYG{+w}{    }\PYG{n}{assume}\PYG{p}{(}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{esc}{$a_1$}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{p}{(}\PYG{esc}{$a_1$}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{esc}{$b_1$}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{    }\PYG{n}{assume}\PYG{p}{(}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{esc}{$a_2$}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{p}{(}\PYG{esc}{$a_2$}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{esc}{$b_2$}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{assume}\PYG{p}{(}\PYG{p}{(}\PYG{esc}{$a_2$}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{esc}{$a_1$}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{p}{(}\PYG{esc}{$b_2$}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{esc}{$b_1$}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+
 \PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{esc}{$c_1$}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{esc}{$c_2$}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{while}\PYG{+w}{ }\PYG{p}{(}\PYG{esc}{\colorbox{yellow}{$(a_1 < b_1)$}}\PYG{+w}{ }\PYG{esc}{$\mid\mid$}\PYG{+w}{ }\PYG{esc}{\colorbox{green!40!white}{$(a_2 < b_2)$}}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
 \PYG{+w}{        }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{esc}{\colorbox{yellow}{$(a_1 < b_1)$}}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}

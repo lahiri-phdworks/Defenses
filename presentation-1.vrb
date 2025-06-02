@@ -1,23 +1,21 @@
-\frametitle{Monotonicity Example}
+\frametitle{Monotonicity Example: Third Completion}
 \begin{figure}[t]
-        \begin{minted}[tabsize=2, numbersep=0em, fontsize=\small, breaklines]{java}
-            int |$\widehat{\proghole{}{\cdot}}$|(int |$a_1$|, int |$b_1$|, int |$a_2$|, int |$b_2$|){
-                assume((0 < |$a_1$|) && (|$a_1$| < |$b_1$|));
-                assume((0 < |$a_2$|) && (|$a_2$| < |$b_2$|));
-                int |$c_1$| = 0, |$c_2$| = 0;
-                while (|\colorbox{yellow}{$(a_1 < b_1)$}| |$\mid\mid$| |\colorbox{green!40!white}{$(a_2 < b_2)$}|) {
-                    if (|\colorbox{yellow}{$(a_1 < b_1)$}|) {
-                        |$c_1$| = |$c_1$| + |\hole{\cdot}|;
-                        |$a_1$| = |$a_1$| + 1;
-                    }
-                    if (|\colorbox{green!40!white}{$(a_2 < b_2)$}|) {
-                        |$c_2$| = |$c_2$| + |\hole{\cdot}|;
-                        |$a_1$| = |$a_1$| + 1;
-                    }
+    \begin{minipage}{0.45\columnwidth}
+        \begin{minted}{c}
+            // |PRE: \colorbox{yellow!20!white}{$(a_2 < a_1 \land b_2 > b_1)$}|
+            int |$\proghole{}{.}$| (int |$a$|, int |$b$|){
+                assume((0 < |$a$|) && (|$a$| < |$b$|));
+                while (|$a$| < |$b$|) {
+                    |$c$| = |$c$| + |\hole{(b - c) + 1}|;
+                    |$a$| = |$a$| + 1;
                 }
-                return |$c_1,\ c_2$|;
+                return |$c$|;
             }
+            // |POST: \colorbox{green!20!white}{$(c_2 > c_1)$}|
         \end{minted}
-        \caption{Product program for Monotonicity from \Cref{list:prog:qbsynth}.}
-        \label{list:pp:qbsynth}
-    \end{figure}
+    \end{minipage}
+    \begin{minipage}{0.45\columnwidth}
+        \centering
+        \includegraphics[scale=0.3]{assets/stage3.pdf}
+    \end{minipage}
+\end{figure}

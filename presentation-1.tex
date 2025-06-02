@@ -206,12 +206,11 @@
 %\subtitle{Ethereum: A secure decentralized generalized transaction ledger (Dr. Gavin Wood)}
 
 \author[Sumit Lahiri] % (optional, for multiple authors)
-{Presented By Sumit~Lahiri\inst{1}}
+{\textbf{Sumit~Lahiri}}
 
 \institute[] % (optional)
 {
-	\inst{1}%
-	PRAISE Group, CSE Dept. IIT Kanpur
+	\large PRAISE Group, CSE Dept. IIT Kanpur
 }
 
 \date[02/06/2025] % (optional)
@@ -230,17 +229,132 @@
 \input{sections/monotonicity.tex}
 
 \begin{frame}{Tool Architecture}
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.45]{assets/tool_arch.pdf}
+    \end{figure}
+\end{frame}
 
+\begin{frame}[fragile]{Monotonicity Example: First Completion}
+        \begin{figure}[t]
+        \begin{minipage}{0.45\columnwidth}
+        \begin{minted}{c}
+            // |PRE: \colorbox{yellow!20!white}{$(a_2 < a_1 \land b_2 > b_1)$}|
+            int |$\proghole{}{.}$| (int |$a$|, int |$b$|){
+                assume((0 < |$a$|) && (|$a$| < |$b$|));
+                while (|$a$| < |$b$|) {
+                    |$c$| = |$c$| + |\hole{b}|;
+                    |$a$| = |$a$| + 1;
+                }
+                return |$c$|;
+            }
+            // |POST: \colorbox{green!20!white}{$(c_2 > c_1)$}|
+        \end{minted}
+        \end{minipage}
+        \begin{minipage}{0.45\columnwidth}
+            \centering
+            \includegraphics[scale=0.3]{assets/stage1.pdf}
+        \end{minipage}
+    \end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{Monotonicity Example: Second Completion}
+        \begin{figure}[t]
+    \begin{minipage}{0.45\columnwidth}
+        \begin{minted}{c}
+            // |PRE: \colorbox{yellow!20!white}{$(a_2 < a_1 \land b_2 > b_1)$}|
+            int |$\proghole{}{.}$| (int |$a$|, int |$b$|){
+                assume((0 < |$a$|) && (|$a$| < |$b$|));
+                while (|$a$| < |$b$|) {
+                    |$c$| = |$c$| + |\hole{1}|;
+                    |$a$| = |$a$| + 1;
+                }
+                return |$c$|;
+            }
+            // |POST: \colorbox{green!20!white}{$(c_2 > c_1)$}|
+        \end{minted}
+    \end{minipage}
+    \begin{minipage}{0.45\columnwidth}
+        \centering
+        \includegraphics[scale=0.3]{assets/stage2.pdf}
+    \end{minipage}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{Monotonicity Example: Third Completion}
+        \begin{figure}[t]
+    \begin{minipage}{0.45\columnwidth}
+        \begin{minted}{c}
+            // |PRE: \colorbox{yellow!20!white}{$(a_2 < a_1 \land b_2 > b_1)$}|
+            int |$\proghole{}{.}$| (int |$a$|, int |$b$|){
+                assume((0 < |$a$|) && (|$a$| < |$b$|));
+                while (|$a$| < |$b$|) {
+                    |$c$| = |$c$| + |\hole{(b - c) + 1}|;
+                    |$a$| = |$a$| + 1;
+                }
+                return |$c$|;
+            }
+            // |POST: \colorbox{green!20!white}{$(c_2 > c_1)$}|
+        \end{minted}
+    \end{minipage}
+    \begin{minipage}{0.45\columnwidth}
+        \centering
+        \includegraphics[scale=0.3]{assets/stage3.pdf}
+    \end{minipage}
+\end{figure}
 \end{frame}
 
 \input{sections/experiments.tex}
 
 \begin{frame}{Conclusion \& Future Directions}
-
+    \vspace{10pt}
+    \begin{tcolorbox}[
+        colback=white,
+        colframe=green,
+        colbacktitle=white!70!green,
+        coltitle=black,
+        title=\textbf{New Synthesis Problem!},
+        enhanced,
+        attach boxed title to top left={yshift=-2mm, xshift=0.2cm},%
+        ]
+          Relational synthesis with semantic quantitative objectives---and designed an algorithm to solve the same.
+    \end{tcolorbox}
+    \pause
+    \vspace{5pt}
+    \begin{tcolorbox}[
+        colback=white,
+        colframe=blue,
+        colbacktitle=white!70!blue,
+        coltitle=black,
+        title=\textbf{Conclusion},
+        enhanced,
+        attach boxed title to top left={yshift=-2mm, xshift=0.2cm},%
+        ]
+   \begin{itemize}
+    \item[-] \tool instantiates this algorithm and solves non-trivial problems in a reasonable time.
+    \item[-] Our solutions are optimal only for a $k$-bounded setting, however, we do achieve the globally optimal completions (empirically) for all benchmarks in our suite.
+\end{itemize}
+    \end{tcolorbox}
+   \pause
+   \vspace{5pt}
+       \begin{tcolorbox}[
+       colback=white,
+       colframe=yellow!20!black,
+       colbacktitle=white!70!yellow,
+       coltitle=black,
+       title=\textbf{Future Directions},
+       enhanced,
+       attach boxed title to top left={yshift=-2mm, xshift=0.2cm},%
+       ]
+   \begin{itemize}
+    \item[-] Synthesis for global optimality.
+    \item[-] Synthesis problems for those beyond 2-safety.
+\end{itemize}
+   \end{tcolorbox}
 \end{frame}
 
 \begin{frame}{Thank You!}
-
+   \huge{Questions?}
 \end{frame}
 
 \end{document}

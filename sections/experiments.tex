@@ -1,5 +1,27 @@
 \begin{frame}{Experiments}
-    Machine configuration, Benchmark Sources, Domain-specific Language.
+    \begin{description}
+        \item[RQ1.] Relational synthesis \textbf{without} quantitative objectives
+        \item[RQ2.] Relational synthesis \textbf{with} quantitative objectives
+    \end{description}
+\end{frame}
+
+\begin{frame}{Experiments}
+    Grammar to describe the expressions to be instantiated for the holes in the program sketches; $\B{\texttt{var}}$ and $\B{\texttt{num}}$ refer to program variables and numbers respectively.
+    \pause
+    \vspace{20pt}
+        \begin{tcolorbox}[
+        colback=white,
+        colframe=green,
+        colbacktitle=white!70!green,
+        coltitle=black,
+        title=\textbf{Domain Specific Language},
+        enhanced,
+        attach boxed title to top left={yshift=-2mm, xshift=0.2cm},%
+        ]
+        \begin{align*}
+            E ::= E + E \mid E - E \mid E * E \mid \B{\texttt{var}} \mid \B{\texttt{num}} \label{eq:dsl}
+        \end{align*}
+    \end{tcolorbox}
 \end{frame}
 
 \begin{frame}{Instances without quantitative objectives.}

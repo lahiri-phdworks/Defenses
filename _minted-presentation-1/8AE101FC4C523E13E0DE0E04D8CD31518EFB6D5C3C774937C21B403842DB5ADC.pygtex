@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{// PRE: \colorbox{yellow!20!white}{$(a_2 < a_1 \land b_2 > b_1)$}}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{esc}{$\proghole{}{.}$}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{esc}{$a$}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{esc}{$b$}\PYG{p}{)}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{assume}\PYG{p}{(}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{esc}{$a$}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{p}{(}\PYG{esc}{$a$}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{esc}{$b$}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{while}\PYG{+w}{ }\PYG{p}{(}\PYG{esc}{$a$}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{esc}{$b$}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{esc}{$c$}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{esc}{$c$}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{esc}{\hole{(b - c) + 1}}\PYG{p}{;}
+\PYG{+w}{        }\PYG{esc}{$a$}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{esc}{$a$}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{esc}{$c$}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\PYG{c+c1}{// POST: \colorbox{green!20!white}{$(c_2 > c_1)$}}
+\end{Verbatim}
